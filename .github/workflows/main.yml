@@ -1,0 +1,23 @@
+name: Deploy Website
+
+on:
+  push:
+    branches:
+      - main  # Triggers when pushing to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install SSH key
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SECRETSG }}
+
+      - name: Deploy website via SSH
+        run: |
+          scp -r ./path/to/your/site ubuntu@13.233.165.33:/www/wwwroot/supungimhan.run.place
