@@ -20,4 +20,4 @@ jobs:
 
       - name: Deploy website via SSH
         run: |
-          scp -r ./path/to/your/site ubuntu@13.233.165.33:/www/wwwroot/supungimhan.run.place
+          scp -r ./* ubuntu@13.233.165.33:/www/wwwroot/supungimhan.run.place
